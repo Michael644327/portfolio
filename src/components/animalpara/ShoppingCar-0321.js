@@ -7,8 +7,14 @@ const ShoppingCar = ({
   isLogin, 
   loginUser, 
   cartItems, 
-  setCartItems
+  setCartItems 
 }) => {
+  // 從 localStorage 加載購物車數據
+  useEffect(() => {
+    const savedCart = JSON.parse(localStorage.getItem('cart')) || [];
+    setCartItems(savedCart);
+  }, [setCartItems]);
+
   // 當購物車內容變更時，保存到 localStorage
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -21,11 +27,7 @@ const ShoppingCar = ({
 
   // 更新商品數量
   const updateQuantity = (id, newQuantity) => {
-    if (newQuantity < 1) {
-      removeItem(id);
-      return;
-    }
-    
+    if (newQuantity < 1) return;
     setCartItems(prevItems =>
       prevItems.map(item =>
         item.id === id ? { ...item, quantity: newQuantity } : item

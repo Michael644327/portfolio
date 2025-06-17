@@ -1,8 +1,10 @@
-import Home from './pages/Home';
+import Home from '../pages/Home';
 import Calacular from './pages/javascripts/pages/calacular';
 import BookList from './pages/javascripts/pages/booklist';
 import Login from './pages/javascripts/pages/login';
 import AnimalPara from './pages/animalpara/index';
+import Cart from './pages/javascripts/pages/checkout/animal-product';
+// import Cart from './pages/javascripts/pages/shopping';
 
 const routes = [
   { path: "/", element: Home, name: "首頁" },
@@ -12,6 +14,7 @@ const routes = [
       { path: "/classwork/calacular", element: Calacular, name: "計算機" },
       { path: "/classwork/booklist", element: BookList, name: "書本清單篩選" },
       { path: "/classwork/login", element: Login, name: "登入" },
+      { path: "/classwork/shopping", element: Cart, name: "購物車" }
     ]
   },
   {
@@ -28,6 +31,7 @@ const routes = [
   { path: "/classwork/login", element: Login },
   { path: "/classwork/calacular", element: Calacular },
   { path: "/classwork/booklist", element: BookList },
+  { path: "/classwork/shopping", element: Cart }
 
 ];
 
