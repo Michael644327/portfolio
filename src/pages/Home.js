@@ -16,9 +16,9 @@ function Home() {
           個人負責揪團、留言功能</p>
         </div>
         <div className='col-12 col-lg-6 px-5'>
-        <Link to="https://michael644327.github.io/portfolio/#/animalpara">
+        <Link to="/animalpara">
         <h3 className='aligncenter'>動物樂園</h3></Link>
-        <Link to="https://michael644327.github.io/portfolio/#/animalpara">
+        <Link to="/animalpara">
           <img src="./img/aniparahp.png" width="100%" alt="" /></Link>
           <p className='pt-3 px-5'>Bootstrap5元件練習專案，會員登入、購物車功能</p>
           <p className='px-5'><em>會員登入標題連點3下有快速登入功能</em></p>
