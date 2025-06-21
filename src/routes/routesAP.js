@@ -45,10 +45,10 @@ export default function RouteAP() {
       <Route path="/" element={<AnimalParaLayout />}>
         <Route index element={<AnimalPara />} />
         <Route path="about" element={<AboutPage />} />
-        <Route path="/animalpara/funny" element={<FunnyPage />} />
-        <Route path="/animalpara/store" element={<StorePage />} />
-        <Route path="/animalpara/product" element={<ProductPage />} />
-        <Route path="/animalpara/product/:product_id" element={<ProductDetailPage />} />
+        <Route path="funny" element={<FunnyPage />} />
+        <Route path="store" element={<StorePage />} />
+        <Route path="product" element={<ProductPage />} />
+        <Route path="product/:product_id" element={<ProductDetailPage />} />
         <Route path="contact" element={<ContactPage />} />
       </Route>
     </Routes>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Products from './components/animalpara/data/store.json'
+import Products from './components/animalpara/data/products.json'
 import { Button } from "react-bootstrap";
 
 const ProductPage = ({ setCartItems }) => {

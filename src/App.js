@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Routes, HashRouter, Route, useLocation, matchPath } from 'react-router-dom';
+import { Routes, Route, useLocation, matchPath } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 // import NavbarAP from './projects/animalpara/components/navbar/navbarAP';
@@ -49,7 +49,7 @@ function AppContent() {
                   <Component />
                 </PageWrapper>} />
             ))}
-            <Route path="/animalpara/" element={<RouteAP />} />
+            <Route path="/animalpara/*" element={<RouteAP />} />
           </Routes>
         </main>
         <Footer />
