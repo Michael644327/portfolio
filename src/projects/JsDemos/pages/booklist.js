@@ -49,17 +49,19 @@ const BookList = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container flexcolumn">
       <div>價格搜尋</div>
-      <label htmlFor="f_price">過濾價格高於: </label>
-      <input 
-        type="number" 
-        id="f_price" 
-        name="f_price" 
-        value={fValue} 
-        onChange={handleInputChange} 
-        placeholder="輸入價格以過濾"
-      />
+      <div className="flexrow">
+        <label htmlFor="f_price">過濾價格高於: </label>
+        <input
+          type="number"
+          id="f_price"
+          name="f_price"
+          value={fValue}
+          onChange={handleInputChange}
+          placeholder="輸入價格以過濾"
+        />
+      </div>
       <table className="table table-bordered table-striped">
         <thead>
           <tr>

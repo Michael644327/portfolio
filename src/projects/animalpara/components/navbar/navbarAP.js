@@ -33,7 +33,7 @@ const NavbarAP = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary navbar-bt">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="../">回作品集</Link>
+                    <Link className="navbar-brand" to="/">回作品集</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
                         <span className="navbar-toggler-icon"></span>

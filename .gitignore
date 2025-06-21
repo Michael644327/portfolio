@@ -5,8 +5,7 @@
 
 # testing
 /coverage
-src/pages/javascripts/pages/stock
-
+src/projects/JsDemos/pages/stock
 # production
 # /build
 
