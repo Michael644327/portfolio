@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import UserData from "../../../components/animalpara/data/userdata.json"
+import UserData from "../../animalpara/components/animalpara/data/userdata.json"
+// import UserData from "../../../components/animalpara/data/userdata.json"
 
 const Login = () => {
   const [username, setUsername] = useState('');

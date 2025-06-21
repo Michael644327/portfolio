@@ -1,0 +1,35 @@
+.lotto-container {
+  text-align: center;
+  margin-top: 40px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.results {
+  margin-top: 30px;
+}
+
+.ball {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: gold;
+  color: #333;
+  font-weight: bold;
+  font-size: 20px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.3s ease-out;
+}
+
+.ball.show {
+  opacity: 1;
+  transform: scale(1);
+}

@@ -39,17 +39,17 @@ export const routesAPData = [
     }
 ]
 
-export default function RouteAP() {
+export default function AnimalShopRoutes() {
   return (
     <Routes>
       <Route path="/" element={<AnimalParaLayout />}>
-        <Route index element={<AnimalPara />} />
-        <Route path="about" element={<AboutPage />} />
-        <Route path="/animalpara/funny" element={<FunnyPage />} />
-        <Route path="/animalpara/store" element={<StorePage />} />
-        <Route path="/animalpara/product" element={<ProductPage />} />
-        <Route path="/animalpara/product/:product_id" element={<ProductDetailPage />} />
-        <Route path="contact" element={<ContactPage />} />
+        <Route index element={<AnimalPara />} title="動物樂園" name="首頁" />
+        <Route path="about" element={<AboutPage />} title="關於動物" name="關於動物" />
+        <Route path="funny" element={<FunnyPage />} title="動物趣聞" name="動物趣聞" />
+        <Route path="store" element={<StorePage />} title="門市介紹" name="門市介紹" />
+        <Route path="product" element={<ProductPage />} title="商品一覽" name="商品一覽" />
+        <Route path="product/:product_id" element={<ProductDetailPage />} />
+        <Route path="contact" element={<ContactPage />} title="聯絡我們" name="聯絡我們" />
       </Route>
     </Routes>
 

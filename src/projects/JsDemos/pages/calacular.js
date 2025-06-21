@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import "./calacular.css";
+import "../css/calacular.css";
 
 const Calacular = () => {
     const [display, setDisplay] = useState('');

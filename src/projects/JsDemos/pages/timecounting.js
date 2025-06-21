@@ -1,68 +1,77 @@
-import "../css/timeCounting.css"
+import React, { useState, useRef, useEffect } from 'react';
+import "../css/timeCounting.css";
 
-const timeCounting = () => {
+function TimeCounting() {
+    const [inputSeconds, setInputSeconds] = useState('');
+    const [timeLeft, setTimeLeft] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    const [isRunning, setIsRunning] = useState(false);
+    const intervalRef = useRef(null);
+    const displayRef = useRef(null);
 
-    let timerInterval;
-    let timeLeft = 0;
-    let isPaused = false;
+    useEffect(() => {
+        if (isRunning && !isPaused) {
+            intervalRef.current = setInterval(() => {
+                setTimeLeft(prev => {
+                    if (prev <= 0.01) {
+                        clearInterval(intervalRef.current);
+                        setIsRunning(false);
+                        return 0;
+                    }
+                    return (prev - 0.01);
+                });
+            }, 10);
+        }
 
-    function startCountdown() {
-        // const input = document.getElementById("secondsInput").value;
-        // let timeLeft = parseFloat(input);
-        const input = parseFloat(document.getElementById("secondsInput").value);
+        return () => clearInterval(intervalRef.current);
+    }, [isRunning, isPaused]);
 
-        if (isNaN(input) || input <= 0) {
-            alert("請輸入正確的秒數");
+    useEffect(() => {
+        if (displayRef.current) {
+            displayRef.current.classList.remove('animate');
+            void displayRef.current.offsetWidth;
+            displayRef.current.classList.add('animate');
+        }
+    }, [timeLeft]);
+
+    const handleStart = () => {
+        const value = parseFloat(inputSeconds);
+        if (isNaN(value) || value <= 0) {
+            alert('請輸入正確的秒數');
             return;
         }
 
-        clearInterval(timerInterval);
-        timeLeft = input;
-        isPaused = false;
-        document.getElementById("pauseBtn").textContent = "暫停";
-        document.getElementById("pauseBtn").disabled = false;
+        clearInterval(intervalRef.current);
+        setTimeLeft(value);
+        setIsRunning(true);
+        setIsPaused(false);
+    };
 
-        const display = document.getElementById("countdownDisplay");
-
-        timerInterval = setInterval(() => {
-            if (!isPaused) {
-                timeLeft -= 0.01;
-                if (timeLeft <= 0) {
-                    clearInterval(timerInterval);
-                    display.textContent = "0.00";
-                    document.getElementById("pauseBtn").disabled = true;
-                }
-                else {
-                    display.textContent = timeLeft.toFixed(2);
-                }
-
-                display.classNameList.remove("animate");
-                void display.offsetWidth;//觸發重新繪製
-                display.classNameList.add("animate");
-            }
-        }, 10);
-    }
-
-    function togglePause() {
-        isPaused = !isPaused;
-        const pauseBtn = document.getElementById("pauseBtn");
-        pauseBtn.textContent = isPaused ? "繼續" : "暫停";
+    const handlePauseToggle = () => {
+        setIsPaused(prev => !prev);
     };
 
     return (
         <>
-            <div className="container">
-                <h2>輸入秒數開始倒數</h2>
-                <input type="number" step="0.01" id="secondsInput" placeholder="秒數" />
-                    <button onclick="startCountdown()">開始</button>
-                    <button onclick="togglePause()" id="pauseBtn" disabled>暫停</button>
+            <div className='container'>
+                <div className="box">
+                    <h2>輸入秒數開始倒數</h2>
+                    <input
+                        type="number"
+                        step="0.01"
+                        id="secondsInput"
+                        placeholder="秒數"
+                        value={inputSeconds}
+                        onChange={(e) => setInputSeconds(e.target.value)} />
+                    <button onClick={handleStart}>開始</button>
+                    <button onClick={handlePauseToggle} id="pauseBtn" disabled={!isRunning}>{isPaused ? '繼續' : '暫停'}</button>
 
-                    <div id="countdownDisplay" className="timer">0.00</div>
+                    <div id="countdownDisplay" className="timer" ref={displayRef}>{timeLeft.toFixed(2)}</div>
+                </div>
             </div>
         </>
-    )
+    );
+};
 
-}
-
-export default timeCounting;
+export default TimeCounting;
 

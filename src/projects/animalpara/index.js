@@ -1,9 +1,11 @@
 import React from "react";
-import "../../components/styles/icon.css"
-import HomeSection1 from "../../components/animalpara/Home1Carousel";
-import HomeSection2 from "../../components/animalpara/Home2Vote";
-import HomeSection3 from "../../components/animalpara/Home3Video";
-import SalesProduct from "../../components/animalpara/Home4sales";
+import "../../styles/icon.css"
+// import "../../components/styles/icon.css"
+import HomeSection1 from "../animalpara/components/animalpara/Home1Carousel"
+// import HomeSection1 from "../../components/animalpara/Home1Carousel";
+import HomeSection2 from "../animalpara/components/animalpara/Home2Vote";
+import HomeSection3 from "../animalpara/components/animalpara/Home3Video";
+import SalesProduct from "../animalpara/components/animalpara/Home4sales";
 
 const IndexPage = () => {
 

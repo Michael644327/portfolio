@@ -1,5 +1,5 @@
 import React from "react";
-import Birds from "../../components/animalpara/data/birds.json"
+import Birds from "./components/animalpara/data/birds.json"
 const AboutPage = () => {
 
   return (

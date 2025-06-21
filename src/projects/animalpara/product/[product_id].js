@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from 'react-router-dom'
-import Products from '../../../components/animalpara/data/products.json'
+import Products from '../components/animalpara/data/products.json'
 
 const ProductDetailPage = () => {
   const { product_id } = useParams();

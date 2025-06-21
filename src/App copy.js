@@ -1,13 +1,14 @@
-import { useEffect } from 'react';
-import { Routes, HashRouter, Route, useLocation, matchPath } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Routes, Route, useLocation, matchPath } from 'react-router-dom';
 import Navbar from './components/navbar';
 import Footer from './components/footer';
 // import NavbarAP from './projects/animalpara/components/navbar/navbarAP';
 import "./App.css";
 import routes from './routes';
-import RouteAP from './routes/routesAP'
+import routesAP from './routes/routesAP';
 
 function App() {
+
   return (
     <AppContent />
   );
@@ -15,7 +16,12 @@ function App() {
 
 function AppContent() {
   const location = useLocation();
-  const currentRoute = routes.find(route => route?.path && matchPath(route.path, location.pathname));
+  const allRoutes = [...routes, ...routesAP];
+  // const [isLogin, setIsLogin] = useState({ email: '', password: '' });
+
+  // const currentRoute = allRoutes.find(route => route.path === location.pathname);
+  const currentRoute = allRoutes.find(route => route?.path && matchPath(route.path, location.pathname));
+  const isAniPara = currentRoute && currentRoute.proj === 'AnimalPara';
 
   useEffect(() => {
     if (currentRoute && currentRoute.title) {
@@ -37,19 +43,19 @@ function AppContent() {
       </>
     );
   }
+
   return (
     <>
       <div className='maincontainer'>
-        <Navbar />
+        {isAniPara ? <NavbarAP /> : <Navbar />}
         <main>
           <Routes>
-            {routes.map(({ path, element: Component, title, h2Title }) => (
+            {allRoutes.map(({ path, element: Component, title, h2Title }) => (
               <Route key={path} path={path} element={
                 <PageWrapper title={h2Title ? title : null}>
                   <Component />
                 </PageWrapper>} />
             ))}
-            <Route path="/animalpara/" element={<RouteAP />} />
           </Routes>
         </main>
         <Footer />

@@ -1,7 +1,6 @@
-import React from "react";
 import { useState } from "react";
 import Nav from 'react-bootstrap/Nav';
-import Store from '../../components/animalpara/data/store.json'
+import Store from './components/animalpara/data/store.json';
 
 const StorePage = () => {
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import { Collapse } from 'react-bootstrap';
-import Funny from "../../components/animalpara/data/funny.json"
+import Funny from "./components/animalpara/data/funny.json"
 
 const FunnyPage = () => {
   const [open, setOpen] = useState(

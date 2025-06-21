@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import routesAP from '../../routesAP';
-import "../styles/navbar.css";
+import routesAP from '../../../../routes/routesAP';
+import { routesAPData } from '../../../../routes/routesAP';
+
+import "../styles/navbarAP.css"
 import LoginModal from '../animalpara/LoginModal';
 import ShoppingCar from '../animalpara/ShoppingCar';
 
@@ -31,14 +33,14 @@ const NavbarAP = () => {
         <>
             <nav className="navbar navbar-expand-lg navbar-dark bg-primary navbar-bt">
                 <div className="container-fluid">
-                    <Link className="navbar-brand" to="./">回作品集</Link>
+                    <Link className="navbar-brand" to="../">回作品集</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            {routesAP.map((route) => (
+                            {routesAPData.map((route) => (
                                 <li key={route.path} className="nav-item">
                                     <Link className={`nav-link ${location.pathname === route.path ? 'active' : ''}`} aria-current="page" to={route.path}>{route.name}</Link>
                                 </li>

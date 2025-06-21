@@ -12,8 +12,8 @@
 }
 
 .navbar{
-    background-image: url(../../../public/black-textured-surface.png);
-    background-repeat: repeat-x;
+    /* background-image: url(../../../public/black-textured-surface.png); */
+    /* background-repeat: repeat-x; */
 }
 .navbar-bt .nav-Link{
     color:#FFF;
