@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import LayoutRoute from './components/LayoutRoute';
 import "./App.css";
-import routes from './routes';
+import routes from './routes/routes';
 import RouteAP from './routes/routesAP'
 
 function App() {

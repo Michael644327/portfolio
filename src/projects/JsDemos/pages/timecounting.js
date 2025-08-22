@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import "../css/timeCounting.css";
 
 function TimeCounting() {
@@ -53,7 +53,7 @@ function TimeCounting() {
 
     return (
         <>
-            <div className='container'>
+            <div className="container">
                 <div className="box">
                     <h2>輸入秒數開始倒數</h2>
                     <input
