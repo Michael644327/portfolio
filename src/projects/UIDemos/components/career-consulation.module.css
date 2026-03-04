@@ -1,0 +1,85 @@
+
+.career {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 40px;
+}
+
+/* .img-block.bg-gray, */
+.imgBlock {
+    width: 745px;
+    padding: 24px;
+}
+
+.careerText{
+    display: flex;
+    flex-direction: column;
+}
+
+.para1,
+.para2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.textBlock {
+    position: relative;
+    padding: 24px;
+    width: 480px;
+    height: 210px;
+    padding-top: 46px;
+}
+
+.textBlock h4 {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.textBlock::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 30px;
+    height: 2.5px;
+    background-color: #0033cc;
+}
+
+@media (min-width: 1024px) {
+    .textBlock {
+        position: relative;
+        width: 600px;
+        top: 50px;
+        z-index: 100;
+    }
+
+    .para1 {
+        margin-left: -150px;
+    }
+
+    .para2 {
+        margin-top: -50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .career {
+        flex-direction: column;
+    }
+
+    .careerText,
+    .imgBlock {
+        width: 100%;
+    }
+
+    .img-block.bg-gray {
+        width: 100%;
+    }
+
+    .textBlock {
+        width: 100%;
+    }
+}
+

@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 import BaseLayout from "../layout/baselayout";
 import { apRouteConfig } from "./AP"
 import { jsRouteConfig } from "./JS"
+import { uiRouteConfig } from "./UI-practice";
 
 export const router = createHashRouter([{
   path: "/",
@@ -11,6 +12,7 @@ export const router = createHashRouter([{
     },
     apRouteConfig,
     jsRouteConfig,
+    uiRouteConfig,
   ],
 },
 ]);
@@ -18,6 +20,7 @@ export const router = createHashRouter([{
 export { apRouteConfig, jsRouteConfig };
 export { apRoutes } from './AP';
 export { jsRoutes } from './JS';
+export { uiRouteConfig } from "./UI-practice";
 
 export const mainNavConfig = [
   {
@@ -38,7 +41,7 @@ export const mainNavConfig = [
     showInNav: true,
     children: [
       { label: '動物樂園', path: '/animalpara', type: 'link' },
-      // { label: '切版練習', path: '/hex', type: 'link' }
+      { label: '切版練習', path: '/hex', type: 'link' }
     ],
   },
   {

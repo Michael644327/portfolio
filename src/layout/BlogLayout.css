@@ -1,0 +1,54 @@
+/* container */
+.blogLayout .container {
+    max-width: 1296px;
+    width: 100%;
+    margin: 0 auto 24px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .blogLayout .container {
+        padding: 0 12px;
+    }
+}
+
+
+.CareerSection {
+    padding: 80px 0;
+}
+
+.bgWhite {
+    background-color: #FFF;
+}
+
+.bgGray {
+    background-color: #F5F5F5;
+}
+
+
+.blue {
+    color: #0027D5;
+}
+
+
+.readmore {
+    display: inline-block;
+    text-decoration: none;
+    padding: 8px 16px;
+    color: #000;
+    background-color: #FFF;
+    border: 1px solid #000;
+    border-radius: 40px;
+}
+
+button.readmore a {
+    text-decoration: none;
+}
+
+
+.bdBt {
+    border-bottom: 1px solid #000;
+    padding-bottom:12px;
+}

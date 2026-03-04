@@ -1,0 +1,59 @@
+
+.news {
+    gap: 24px;
+    display: flex;
+}
+
+.imgBlock {
+    width: 50%;
+}
+
+.newsBlock {
+    background-image: url(https://github.com/hexschool/2022-web-layout-training/blob/main/2025-web-camp/desktop/index/Hero%20Section2.png?raw=true);
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px;
+    gap: 24px;
+}
+
+.fields {
+    display: flex;
+    flex-direction: column;
+    gap: 8px
+}
+
+input {
+    background-color: #f1f1f1;
+    padding: 16px 8px;
+    font-size: 20px;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+
+@media (max-width: 768px) {
+
+    .news {
+        gap: 24px;
+        flex-direction: column;
+    }
+
+    .imgBlock {
+        width: 100%;
+    }
+
+    .newsBlock {
+        width: 100%;
+        padding: 24px;
+    }
+}

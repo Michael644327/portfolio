@@ -1,0 +1,19 @@
+.searchbar {
+    padding: 40px 0 20px 0;
+    position: relative;
+    width: 460px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    top: 60px;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+.searchbox {
+    padding: 6px 0 6px 36px;
+    border-radius: 20px;
+    width: 400px;
+}

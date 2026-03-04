@@ -1,4 +1,6 @@
 import React from "react";
+import HexHero2 from "./page-components/hex-hero2";
+import ArticleTop from "./page-components/article-1";
 import { Link } from "react-router-dom";
 
 
@@ -6,7 +8,8 @@ export default function BlogContent() {
     return <>
 
         <div className="wide-section">
-            <div className="top-title blog-title">
+        <ArticleTop />
+            {/* <div className="top-title blog-title">
                 <div className="title-block img-block">
                     <img src="https://raw.githubusercontent.com/hexschool/2022-web-layout-training/refs/heads/main/2025-web-camp/desktop/blog-content/About%20Section.png" alt="img" width="100%" />
                 </div>
@@ -19,7 +22,7 @@ export default function BlogContent() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
         <div className="blog-container">
             <div>
