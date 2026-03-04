@@ -1,55 +1,90 @@
 import React from 'react';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
+import { jsRoutes, mainNavConfig } from '../routes';
+import { getRouterLinks } from '../utils/getRouteLinks';
 import { Link } from 'react-router-dom';
-import routes from "../routes/routes"
 import "../styles/navbar.css"
 
-function Navbar() {
+function MainNavbar() {
+    const getDropdownChildren = (item) => {
+        if (item.children === 'js') {
+            return jsRoutes.filter(route => route.meta?.showInMainNav).map(route => ({
+                label: route.meta.label,
+                path: `/jsdemos/${route.path}`,
+                type: 'link',
+            }));
+        }
+        return item.children || [];
+    }
     return (
         <>
-            <nav className="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
-                <div className="container">
-                    <a className="navbar-brand" href="/portfolio/">
-                        <img src="./img/mmm.jpg" className="align-middle me-1 img-fluid logo" alt="My Website" /></a>
+            <Navbar bg="dark" variant="blue" expand="lg" sticky='top'>
+                <Container fluid>
+                    <Navbar.Brand as={Link} to="/portfolio/">
+                        <img src="./img/mmm.jpg" className="align-middle me-1 img-fluid logo" alt="My Website" />
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="main-navbar" />
+                    <Navbar.Collapse id="main-navbar">
+                        <Nav className="ms-auto">
+                            {mainNavConfig.filter(item => item.showInNav)
+                                .map((item, index) => {
+                                    if (item.type === 'link') {
+                                        return (
+                                            <Nav.Link key={index} as={Link} to={item.path}>
+                                                {item.label}
+                                            </Nav.Link>
+                                        );
+                                    }
+                                    if (item.type === 'dropdown') {
+                                        const children = getDropdownChildren(item);
+                                        return (
+                                            <NavDropdown
+                                                key={index}
+                                                title={item.label}
+                                                id={`nav-dropdown-${index}`}>
+                                                {children.map((child, childIndex) => {
+                                                    return (
+                                                        <NavDropdown.Item
+                                                            key={childIndex}
+                                                            as={Link}
+                                                            to={child.path}>
+                                                            {child.label}
+                                                        </NavDropdown.Item>
+                                                    )
+                                                })}
+                                            </NavDropdown>
+                                        );
+                                    }
+                                    if (item.type === 'external') {
+                                        return (
+                                            <Nav.Link
+                                                key={index}
+                                                href={item.href} target="_blank"
+                                                rel="noopener noreferrer"
+                                                className='nav-item'>
+                                                {item.label}<span className='external-icon'>🔗</span>
+                                            </Nav.Link>
+                                        )
 
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar4" aria-controls="myNavbar4" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-
-
-                    <div className="lc-block collapse navbar-collapse" id="myNavbar4">
+                                    }
+                                    return null;
+                                })}
+                        </Nav>
+                    </Navbar.Collapse>
+                    {/* <div className="lc-block collapse navbar-collapse" id="myNavbar4">
                         <div lc-helper="shortcode" className="live-shortcode me-auto">
                             <ul id="menu-menu-1" className="navbar-nav">
-                            {routes.map((route) => (
-                            route.children ? (
-                                <li key={route.name} className="nav-item dropdown">
-                                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {route.name}
-                                    </a>
-                                    <ul className="dropdown-menu">
-                                        {route.children.map((child) => (
-                                            <li key={child.path}>
-                                                <Link to={child.path} className="dropdown-item" 
-                                                target={child.ltype === "outside" ? "_blank": "_self"}>
-                                                    {child.name}
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                <li><Link to="#">首頁</Link></li>
+                                <li className='nav-item dropdown'><Link to="#">功能練習</Link>
+                                    {getRouterLinks(fcRoutes, "/function")}
+                                    <li><Link to="#">作品集</Link></li>
                                 </li>
-                            ) : (
-                                <li key={route.path} className="nav-item">
-                                    <Link to={route.path} className="nav-link">
-                                        {route.name}
-                                    </Link>
-                                </li>
-                            )
-                        ))}
                             </ul>
                         </div>
-                    </div>
-                </div>
-            </nav>
+                    </div> */}
+                </Container>
+            </Navbar>
         </>
     )
 }
-export default Navbar;
+export default MainNavbar;

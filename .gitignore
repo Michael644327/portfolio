@@ -21,4 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 src/pages/javascripts/pages/test.html
 src/projects/animalpara/product copy 2.js
-src/routes/routes000.js
+src/routes/routes.js

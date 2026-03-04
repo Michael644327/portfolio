@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
-import routesAP from '../../../../routes/routesAP';
-import { routesAPData } from '../../../../routes/routesAP';
+// import routesAP from '../../../../routes/routesAP';
+import { apRoutes } from '../../../../routes/AP';
 
 import "../styles/navbarAP.css"
 import LoginModal from '../animalpara/LoginModal';
@@ -20,7 +21,7 @@ const NavbarAP = () => {
     //     totalAmount: 0,
     //     lastUpdated: ""
     //   });
-    
+
     const [loginModal, setLoginModal] = useState(false);
     const handleLoginlOpen = () => setLoginModal(true);
     const handleLoginClose = () => setLoginModal(false);
@@ -31,53 +32,53 @@ const NavbarAP = () => {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-primary navbar-bt">
-                <div className="container-fluid">
+            <Navbar bg="primary" variant="blue" expand="lg" sticky='top'>
+                <Container fluid>
                     <Link className="navbar-brand" to="/">回作品集</Link>
-                    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="toggle navigation">
-                        <span className="navbar-toggler-icon"></span>
-                    </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            {routesAPData.map((route) => (
-                                <li key={route.path} className="nav-item">
-                                    <Link className={`nav-link ${location.pathname === route.path ? 'active' : ''}`} aria-current="page" to={route.path}>{route.name}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                        <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li className="position-relative">
-                                <button type="button" className="btn btn-black text-white" onClick={handleLoginlOpen}>
-                                    <i className="bi bi-person-circle"></i>
-                                </button>
-                            </li>
-                            {isLogin ? (
+                    <Navbar.Toggle aria-controls="main-navbar" />
+                    <Navbar.Collapse id="main-navbar">
+                        <Nav className="ms-auto">
+                            {apRoutes.filter(item => item.showInNav)
+                                .map((item, index) => {
+                                    return (
+                                        <Nav.Link key={index} as={Link} to={item.path}>
+                                            {item.meta.label}
+                                        </Nav.Link>
+                                    );
+                                })}
+                            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                                 <li className="position-relative">
-                                    <button type="button" className="btn btn-primary">
-                                        <i className="bi bi-chat-left-dots-fill"></i>
+                                    <button type="button" className="btn btn-black text-white" onClick={handleLoginlOpen}>
+                                        <i className="bi bi-person-circle"></i>
                                     </button>
-                                    <span className="bg-danger text-white position-absolute noticeicon px-2 rounded-circle">3</span>
                                 </li>
-                            ) : ''}
-                            <li className="position-relative">
-                                <button type="button" className="btn btn-black text-white" onClick={handleShoppingOpen}>
-                                    <i className="bi bi-cart2"></i>
-                                </button>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <LoginModal 
-            isLogin={isLogin} setIsLogin={setIsLogin} 
-            loginUser={loginUser} setLoginUser={setLoginUser}
-            show={loginModal} handleClose={handleLoginClose} />
+                                {isLogin ? (
+                                    <li className="position-relative">
+                                        <button type="button" className="btn btn-primary">
+                                            <i className="bi bi-chat-left-dots-fill"></i>
+                                        </button>
+                                        <span className="bg-danger text-white position-absolute noticeicon px-2 rounded-circle">3</span>
+                                    </li>
+                                ) : ''}
+                                <li className="position-relative">
+                                    <button type="button" className="btn btn-black text-white" onClick={handleShoppingOpen}>
+                                        <i className="bi bi-cart2"></i>
+                                    </button>
+                                </li>
+                            </ul>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+            <LoginModal
+                isLogin={isLogin} setIsLogin={setIsLogin}
+                loginUser={loginUser} setLoginUser={setLoginUser}
+                show={loginModal} handleClose={handleLoginClose} />
             <ShoppingCar
-            isLogin={isLogin} loginUser={loginUser}             
-            cartItems={cartItems}
-            setCartItems={setCartItems}
-            show={shoppingModal} handleClose={handleShoppingClose} />
+                isLogin={isLogin} loginUser={loginUser}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+                show={shoppingModal} handleClose={handleShoppingClose} />
         </>
     );
 }

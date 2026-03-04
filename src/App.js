@@ -1,13 +1,18 @@
-import { Routes, Route } from 'react-router-dom';
-import LayoutRoute from './components/LayoutRoute';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
+// import { Routes, Route } from 'react-router-dom';
+
+// import LayoutRoute from './components/LayoutRoute';
 import "./App.css";
-import routes from './routes/routes';
-import RouteAP from './routes/routesAP'
+// import routes from './routes/routes';
+// import RouteAP from './routes/routesAP'
 
 function App() {
   return (
     <>
-      <div className='maincontainer'>
+    
+      <RouterProvider router={router} />
+      {/* <div className='maincontainer'>
         <main>
           <Routes>
             {routes.map(({ path, element: Component, title, h2Title }) => (
@@ -20,7 +25,7 @@ function App() {
             <Route path="/animalpara/*" element={<RouteAP />} />
           </Routes>
         </main>
-      </div>
+      </div> */}
     </>
   );
 }

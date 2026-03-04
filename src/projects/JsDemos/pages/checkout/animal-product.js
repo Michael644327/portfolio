@@ -4,9 +4,8 @@ import Products from '../data/animal-products.json'
 import useSortId from "./dataSort";
 import { Button } from "react-bootstrap";
 
-const ProductPage = () => {
+const ProductPage = ({setCartItems}) => {
 
-  const [category, setCategory] = useState();
   // const [price, setPrice] = useState("");
 
   const sortedProducts  = useSortId(Products, "id");
@@ -15,6 +14,7 @@ const ProductPage = () => {
     Products.map(()=>0)
   );
 
+  //數量增減
   const handleQuantityChange = (index, delta) => {
     setItemCounts((prevCounts) => {
       const newCounts = [...prevCounts];
@@ -28,10 +28,11 @@ const ProductPage = () => {
     0
   );
 
+  //商品分類filter
+  const [category, setCategory] = useState();
   const categoryFilter = (category) => {
     setCategory(category)
   }
-
   const filterProducts = sortedProducts.filter((product) => {
     const matchesCategory = category ? product.category === category : true;
     return matchesCategory;
