@@ -18,7 +18,7 @@ function MainNavbar() {
     }
     return (
         <>
-            <Navbar bg="dark" variant="blue" expand="lg" sticky='top'>
+            <Navbar bg="dark" variant="white" expand="lg" sticky='top' data-bs-theme="dark">
                 <Container fluid>
                     <Navbar.Brand as={Link} to="/portfolio/">
                         <img src="./img/mmm.jpg" className="align-middle me-1 img-fluid logo" alt="My Website" />
@@ -65,23 +65,11 @@ function MainNavbar() {
                                                 {item.label}<span className='external-icon'>🔗</span>
                                             </Nav.Link>
                                         )
-
                                     }
                                     return null;
                                 })}
                         </Nav>
                     </Navbar.Collapse>
-                    {/* <div className="lc-block collapse navbar-collapse" id="myNavbar4">
-                        <div lc-helper="shortcode" className="live-shortcode me-auto">
-                            <ul id="menu-menu-1" className="navbar-nav">
-                                <li><Link to="#">首頁</Link></li>
-                                <li className='nav-item dropdown'><Link to="#">功能練習</Link>
-                                    {getRouterLinks(fcRoutes, "/function")}
-                                    <li><Link to="#">作品集</Link></li>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> */}
                 </Container>
             </Navbar>
         </>

@@ -3,18 +3,21 @@ import BaseLayout from "../layout/baselayout";
 import { apRouteConfig } from "./AP"
 import { jsRouteConfig } from "./JS"
 import { uiRouteConfig } from "./UI-practice";
+import Home from '../pages/Home';
 
 export const router = createHashRouter([{
   path: "/",
+  element: <BaseLayout />,
   children: [
     {
-      index: true, element: <BaseLayout />
+      index: true, element: <Home />
     },
-    apRouteConfig,
-    jsRouteConfig,
-    uiRouteConfig,
   ],
 },
+
+  apRouteConfig,
+  jsRouteConfig,
+  uiRouteConfig,
 ]);
 
 export { apRouteConfig, jsRouteConfig };

@@ -22,3 +22,7 @@ yarn-error.log*
 src/pages/javascripts/pages/test.html
 src/projects/animalpara/product copy 2.js
 src/routes/routes.js
+src/components/ContactForm copy.tsx
+src/components/ContactForm_cla.tsx
+src/components/ContactForm.module.css
+src/components/ContactForm.tsx

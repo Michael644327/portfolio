@@ -9,9 +9,11 @@ export default function BaseLayout() {
     <>
       <div className="app-container">
         <Navbar />
+        <main>
         <div className="main-container">
           <Outlet />
         </div>
+        </main>
         <Footer />
       </div>
     </>
